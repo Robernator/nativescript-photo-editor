@@ -57,13 +57,20 @@ module.exports = {
       },
     },
     '⚙️': {
-      script: `npx cowsay "@nativescript/* packages will keep your ⚙️ cranking"`,
-      description: '_____________  @nativescript/*  _____________',
+      script: `npx cowsay "@robernator/* packages will keep your ⚙️ cranking"`,
+      description: '_____________  @robernator/*  _____________',
     },
     // packages
     // build output is always in dist/packages
-    '@nativescript': {
-      'build-all': {
+    '@robernator': {
+      // @robernator/nativescript-photo-editor
+			'nativescript-photo-editor': {
+				build: {
+					script: 'nx run nativescript-photo-editor:build.all',
+					description: '@robernator/nativescript-photo-editor: Build',
+				},
+			},
+			'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
       },
@@ -73,8 +80,12 @@ module.exports = {
       description: '_____________  Focus (VS Code supported)  _____________',
     },
     focus: {
-      reset: {
-        script: 'nx g @nativescript/plugin-tools:focus-packages',
+      'nativescript-photo-editor': {
+				script: 'nx run nativescript-photo-editor:focus',
+				description: 'Focus on @robernator/nativescript-photo-editor',
+			},
+			reset: {
+        script: 'nx g @robernator/plugin-tools:focus-packages',
         description: 'Reset Focus',
       },
     },
